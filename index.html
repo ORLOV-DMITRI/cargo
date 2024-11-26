@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body data-bs-theme="dark">
+    <div class="container mt-4">
+      <h1 class="mb-4">Cargo Tracker</h1>
+      
+      <div id="filter" class="mb-4">
+        <label for="cargo-filter" class="form-label">Фильтр по статусу:</label>
+        <select id="cargo-filter" class="form-select w-50">
+          <option value="all">Все</option>
+          <option value="Ожидает отправки">Ожидает отправки</option>
+          <option value="В пути">В пути</option>
+          <option value="Доставлен">Доставлен</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#cargoModal">
+        Добавить груз
+      </button>
+
+      <div id="table"></div>
+
+      <div class="modal fade" id="cargoModal" tabindex="-1" aria-labelledby="cargoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cargoModalLabel">Добавить новый груз</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="cargo-form" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="cargo-name" class="form-label">Название груза</label>
+                  <input type="text" id="cargo-name" class="form-control" required />
+                  <div class="invalid-feedback">Введите название груза.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="cargo-origin" class="form-label">Пункт отправления</label>
+                  <input type="text" id="cargo-origin" class="form-control" required />
+                  <div class="invalid-feedback">Введите пункт отправления.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="cargo-destination" class="form-label">Пункт назначения</label>
+                  <input type="text" id="cargo-destination" class="form-control" required />
+                  <div class="invalid-feedback">Введите пункт назначения.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="cargo-date" class="form-label">Дата отправления</label>
+                  <input type="date" id="cargo-date" class="form-control" required />
+                  <div class="invalid-feedback">Выберите дату отправления.</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Добавить груз</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div id="alerts" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
